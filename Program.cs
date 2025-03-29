@@ -57,6 +57,20 @@ namespace lab040425
 
           Regex phoneRegex = new Regex(@"\((\d{3})\)\s*(\d{3})-(\d{2})-(\d{2})");
           modifiedContent = phoneRegex.Replace(modifiedContent, ReplacePhoneNumber);
+
+          if (modifiedContent != originalContent)
+          {
+            try
+            {
+              File.WriteAllText(filePath, modifiedContent);
+              Console.WriteLine($"Файл изменен: {filePath}");
+              modifiedFilesCount++;
+            }
+            catch (Exception ex)
+            {
+              Console.WriteLine($"Ошибка при записи файла {filePath}: {ex.Message}");
+            }
+          }
         }
 
         if (modifiedFilesCount > 0)

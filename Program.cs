@@ -64,7 +64,7 @@ namespace lab040425
             {
               File.WriteAllText(filePath, modifiedContent);
               Console.WriteLine($"Файл изменен: {filePath}");
-              modifiedFilesCount++;
+              ++modifiedFilesCount;
             }
             catch (Exception ex)
             {

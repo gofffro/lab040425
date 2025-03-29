@@ -47,6 +47,13 @@ namespace lab040425
             Console.WriteLine($"Ошибка при чтении файла {filePath}: {ex.Message}");
             continue;
           }
+
+          string modifiedContent = originalContent;
+
+          foreach (var pair in incorrectWords)
+          {
+            modifiedContent = modifiedContent.Replace(pair.Key, pair.Value);
+          }
         }
 
         if (modifiedFilesCount > 0)

@@ -37,7 +37,16 @@ namespace lab040425
 
         foreach (var filePath in files)
         {
-          // обработка файлов
+          string originalContent;
+          try
+          {
+            originalContent = File.ReadAllText(filePath);
+          }
+          catch (Exception ex)
+          {
+            Console.WriteLine($"Ошибка при чтении файла {filePath}: {ex.Message}");
+            continue;
+          }
         }
 
         if (modifiedFilesCount > 0)

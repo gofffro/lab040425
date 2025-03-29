@@ -1,10 +1,11 @@
 ﻿namespace lab040425
 {
-    internal class Program
+  internal class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+      Console.WriteLine("Введите путь к директории:");
+      string directoryPath = Console.ReadLine();
     }
+  }
 }

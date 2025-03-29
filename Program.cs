@@ -29,6 +29,30 @@ namespace lab040425
 
       Console.WriteLine("Введите путь к директории:");
       string directoryPath = Console.ReadLine();
+
+      try
+      {
+        var files = Directory.GetFiles(directoryPath, "*", SearchOption.AllDirectories);
+        int modifiedFilesCount = 0;
+
+        foreach (var filePath in files)
+        {
+          // обработка файлов
+        }
+
+        if (modifiedFilesCount > 0)
+        {
+          Console.WriteLine($"Обработка завершена, количество измененных файлов: {modifiedFilesCount}");
+        }
+        else
+        {
+          Console.WriteLine($"Файлы подлежащих обработке не найдены");
+        }
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine($"Ошибка: {ex.Message}");
+      }
     }
   }
 }

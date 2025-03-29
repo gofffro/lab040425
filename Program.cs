@@ -54,6 +54,9 @@ namespace lab040425
           {
             modifiedContent = modifiedContent.Replace(pair.Key, pair.Value);
           }
+
+          Regex phoneRegex = new Regex(@"\((\d{3})\)\s*(\d{3})-(\d{2})-(\d{2})");
+          modifiedContent = phoneRegex.Replace(modifiedContent, ReplacePhoneNumber);
         }
 
         if (modifiedFilesCount > 0)
